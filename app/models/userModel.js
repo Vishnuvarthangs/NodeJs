@@ -1,9 +1,11 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const userSchema = mongoose.Schema({
+const userSchema = mongoose.Schema(
+  {
     username: {
         type: String,
         required: [true, "Please add the user name"],
+        //unique: [true, "Username already taken"],
     },
     email: {
         type: String,
@@ -16,7 +18,7 @@ const userSchema = mongoose.Schema({
     },
 },
     {
-        timpestamps: true,
+        timestamps: true,
     }
 );
 
