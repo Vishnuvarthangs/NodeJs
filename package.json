@@ -1,0 +1,33 @@
+{
+  "name": "mycontact-backend-api",
+  "version": "1.0.0",
+  "description": "This is express project for my contact backend api",
+  "entryPoint": "server.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "server.js",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vishnuvarthangs/Vishnuvarthan.git"
+  },
+  "author": "Vishnuvarthan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vishnuvarthangs/Vishnuvarthan/issues"
+  },
+  "homepage": "https://github.com/Vishnuvarthangs/Vishnuvarthan#readme",
+  "dependencies": {
+    "-": "^0.0.1",
+    "bcrypt": "^5.1.1",
+    "D": "^1.0.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-async-handler": "^1.2.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.1.0",
+    "nodemon": "^3.0.3"
+  }
+}
