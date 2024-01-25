@@ -1,3 +1,7 @@
+https://www.youtube.com/watch?v=H9M02of22z4
+
+https://www.youtube.com/watch?v=ICMnoKxlYYg
+
 # Express_MongoDB_Rest_API_Tutorial
 
 This is express &amp; mongodb rest api tutorial for contact management app
@@ -8,11 +12,11 @@ This is express &amp; mongodb rest api tutorial for contact management app
 
 The diagram shows flow of how we implement User Registration, User Login and Authorization process.
 
-![jwt-token-authentication-node-js-example-flow](jwt-token-authentication-node-js-example-flow.png)
+![jwt-token-authentication-node-js-example-flow](.Images/jwt-token-authentication-node-js-example-flow.png)
 
 You may need to implement Refresh Token:
 
-![jwt-refresh-token-node-js-example-flow](jwt-refresh-token-node-js-example-flow.png)
+![jwt-refresh-token-node-js-example-flow](.Images/jwt-refresh-token-node-js-example-flow.png)
 
 ## Project setup
 
@@ -211,19 +215,19 @@ http://localhost:5001/api/users/current -- GET
 
 The diagram shows flow of User login with JSON Web Token Authentication with BearerToken  -- 1st way
 
-![User_Login_JWT_Auth_BearerToken](User_Login_JWT_Auth_BearerToken.jpg)
+![User_Login_JWT_Auth_BearerToken](.Images/User_Login_JWT_Auth_BearerToken.jpg)
 
 The diagram shows flow of User login with JSON Web Token Header based Authentication with BearerToken -- 2nd way
 
-![User_Login_JWT_Header_BearerToken](User_Login_JWT_Header_BearerToken.jpg)
+![User_Login_JWT_Header_BearerToken](.Images/User_Login_JWT_Header_BearerToken.jpg)
 
 The diagram shows flow of User login with JSON Web Token Header based Authentication with BearerToken -- 2nd way -- throw error need to change GET method
 
-![User_Login_JWT_Header_BearerToken_Error_GET](User_Login_JWT_Header_BearerToken_Error_GET.jpg)
+![User_Login_JWT_Header_BearerToken_Error_GET](.Images/User_Login_JWT_Header_BearerToken_Error_GET.jpg)
 
 The diagram shows flow of User login with JSON Web Token Header based Authentication with BearerToken -- 2nd way -- throw error -- Whether_Token-Expired_or_Not_ValidToken
 
-![User_Login_JWT_Header_BearerToken_Error_Whether_Token-Expired_or_Not_ValidToken](User_Login_JWT_Header_BearerToken_Error_Whether_Token-Expired_or_Not_ValidToken.jpg)
+![User_Login_JWT_Header_BearerToken_Error_Whether_Token-Expired_or_Not_ValidToken](.Images/User_Login_JWT_Header_BearerToken_Error_Whether_Token-Expired_or_Not_ValidToken.jpg)
 
 http://localhost:5001/api/users/login -- POST  -- Whether_Token-Expired_or_Not_ValidToken  -- need to generate new token
 
@@ -234,7 +238,7 @@ http://localhost:5001/api/users/login -- POST  -- Whether_Token-Expired_or_Not_V
 
 The diagram shows flow of User login with JSON Web Token Header based Authentication with BearerToken -- 1st way -- shows the username, email and id
 
-![User_Login_JWT_Auth_BearerToken_Current_User_id](User_Login_JWT_Auth_BearerToken_Current_User_id.jpg)
+![User_Login_JWT_Auth_BearerToken_Current_User_id](.Images/User_Login_JWT_Auth_BearerToken_Current_User_id.jpg)
 
 ```
 
@@ -270,19 +274,17 @@ git push -u origin Contact_Manager_Node_Express
 
 ```
 
-## Throw below error git push -u, because we need to git push -f
+# Throw below error git push -u, because we need to git push -f
 
-## To https://github.com/Vishnuvarthangs/Vishnuvarthan.git
+# To https://github.com/Vishnuvarthangs/Vishnuvarthan.git
 
-## ! [rejected] Contact_Manager_Node_Express -> Contact_Manager_Node_Express (fetch first)
+# ! [rejected] Contact_Manager_Node_Express -> Contact_Manager_Node_Express (fetch first)
 
-## error: failed to push some refs to 'https://github.com/Vishnuvarthangs/Vishnuvarthan.git'
+# error: failed to push some refs to 'https://github.com/Vishnuvarthangs/Vishnuvarthan.git'
 
 ```
 
-
 git push -f origin Contact_Manager_Node_Express
-
 
 ```
 
