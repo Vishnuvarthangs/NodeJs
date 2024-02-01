@@ -1,0 +1,41 @@
+{
+  "name": "todo_node",
+  "version": "1.0.0",
+  "description": "Todo App which built using Nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vishnuvarthangs/Vishnuvarthan.git"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "mongoose": "^7.4.3"
+  },
+  "keywords": [
+    "In",
+    "this",
+    "app",
+    "users",
+    "can",
+    "create",
+    "to-do",
+    "lists"
+  ],
+  "author": "Vishnuvarthan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vishnuvarthangs/Vishnuvarthan/issues"
+  },
+  "homepage": "https://github.com/Vishnuvarthangs/Vishnuvarthan#readme",
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
+}
