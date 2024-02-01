@@ -16,8 +16,8 @@ Todo App which built using Nodejs, Ejs , CSS , JavaScript , Bootstrap .It is res
 ### `Run my project`
 
 ```shell
-	npm uninstall -g nodemon
-	npm install nodemon@3.0.3 --save-dev
+	  npm uninstall -g nodemon
+	  npm install nodemon@3.0.3 --save-dev
     npm install
     npm start
     Open [http://localhost:5000] view
@@ -35,6 +35,20 @@ Todo App which built using Nodejs, Ejs , CSS , JavaScript , Bootstrap .It is res
 <br/>
 
 ## 💻 Screen
+
+The diagram shows flow of how we implement User Registration, User Login and Authorization process.
+
+Todo App:
+
+![Todo App Nodejs](Todo App Nodejs.png)
+
+Add Todo:
+
+![Add Todo Item](Add Todo Item.png)
+
+Delete ToDo App:
+
+![Delete Todo Item](Delete Todo Item.png)
 
 ### Todo App Nodejs
 
@@ -69,7 +83,5 @@ git remote add origin https://github.com/Vishnuvarthangs/Vishnuvarthan.git
 ---git push -u origin Todo-App-Nodejs
 
 git push -f origin Todo-App-Nodejs
-
-url = https://github.com/Vishnuvarthangs/Vishnuvarthan.git
 
 https://stackoverflow.com/questions/11696295/rejected-master-master-non-fast-forward
