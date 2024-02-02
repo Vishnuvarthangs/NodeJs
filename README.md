@@ -90,10 +90,16 @@ git add .
 
 git commit -m "Node.js + MongoDB: User Authentication & Authorization with JWT"
 
-git branch -M main
+git branch -M Node_MongoDB_JWT
 
 git remote add origin https://github.com/Vishnuvarthangs/Vishnuvarthan.git
 
-git push -u origin main
+--git push -u origin Node_MongoDB_JWT
+
+git push -f origin Node_MongoDB_JWT
+
+https://stackoverflow.com/questions/11696295/rejected-master-master-non-fast-forward
+
+https://stackoverflow.com/questions/2452226/master-branch-and-origin-master-have-diverged-how-to-undiverge-branches
 
 ```
