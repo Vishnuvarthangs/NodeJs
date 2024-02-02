@@ -1,0 +1,135 @@
+This app starts a server and listens on port 3000 for connections. The app responds with “Hello World!” for requests to
+the root URL (/) or route. For every other path, it will respond with a 404 Not Found.
+
+The example above is actually a working server: Go ahead and click on the URL shown. You’ll get a response, with
+real-time logs on the page, and any changes you make will be reflected in real time. This is powered by RunKit, which
+provides an interactive JavaScript playground connected to a complete Node environment that runs in your web browser.
+Below are instructions for running the same app on your local machine.
+
+RunKit is a third-party service not affiliated with the Express project.
+
+Running Locally
+First create a directory named myapp, change to it and run npm init. Then install express as a dependency, as per the
+installation guide.
+
+In the myapp directory, create a file named app.js and copy in the code from the example above.
+
+The req (request) and res (response) are the exact same objects that Node provides, so you can invoke req.pipe(),
+req.on('data', callback), and anything else you would do without Express involved.
+
+Run the app with the following command:
+
+$ node app.js  
+
+******************************************************************************************
+Express app.get() Request Function
+
+The `app.get()` function in Node is designed to route HTTP GET requests to the specified path, associating them with
+designated callback functions. Its primary purpose is to link middleware to your application, facilitating the handling
+of GET requests at the specified route.
+
+Syntax:
+
+app.get( path, callback )
+Parameters:
+
+path: It is the path for which the middleware function is being called.
+callback: They can be a middleware function or a series/array of middleware functions.
+
+************************************************************************************************
+                        Basic routing 
+                       ----------------
+ https://expressjs.com/en/starter/basic-routing.html
+https://expressjs.com/en/guide/routing.html
+https://www.geeksforgeeks.org/difference-between-app-use-and-app-get-in-express-js/
+
+Routing refers to determining how an application responds to a client request to a particular endpoint, which is a URI
+(or path) and a specific HTTP request method (GET, POST, and so on).
+
+Each route can have one or more handler functions, which are executed when the route is matched.
+
+Route definition takes the following structure:
+
+app.METHOD(PATH, HANDLER)
+Where:
+
+app is an instance of express.
+METHOD is an HTTP request method, in lowercase.
+PATH is a path on the server.
+HANDLER is the function executed when the route is matched.
+This tutorial assumes that an instance of express named app is created and the server is running. If you are not
+familiar with creating an app and starting it, see the Hello world example.
+
+The following examples illustrate defining simple routes.
+
+Respond with Hello World! on the homepage:
+
+app.get('/', (req, res) => {
+res.send('Hello World!')
+})
+Respond to POST request on the root route (/), the application’s home page:
+
+app.post('/', (req, res) => {
+res.send('Got a POST request')
+})
+Respond to a PUT request to the /user route:
+
+app.put('/user', (req, res) => {
+res.send('Got a PUT request at /user')
+})
+Respond to a DELETE request to the /user route:
+
+app.delete('/user', (req, res) => {
+res.send('Got a DELETE request at /user')
+})
+
+https://en.wikipedia.org/wiki/HTTP#Request_methods
+
+GET
+The GET method requests that the target resource transfer a representation of its state. GET requests should only
+retrieve data and should have no other effect. (This is also true of some other HTTP methods.)[1] For retrieving
+resources without making changes, GET is preferred over POST, as they can be addressed through a URL. This enables
+bookmarking and sharing and makes GET responses eligible for caching, which can save bandwidth. The W3C has published
+guidance principles on this distinction, saying, "Web application design should be informed by the above principles, but
+also by the relevant limitations."[53] See safe methods below.
+
+HEAD
+The HEAD method requests that the target resource transfer a representation of its state, as for a GET request, but
+without the representation data enclosed in the response body. This is useful for retrieving the representation metadata
+in the response header, without having to transfer the entire representation. Uses include checking whether a page is
+available through the status code and quickly finding the size of a file (Content-Length).
+
+POST
+The POST method requests that the target resource process the representation enclosed in the request according to the
+semantics of the target resource. For example, it is used for posting a message to an Internet forum, subscribing to a
+mailing list, or completing an online shopping transaction.[54]
+
+PUT
+The PUT method requests that the target resource create or update its state with the state defined by the representation
+enclosed in the request. A distinction from POST is that the client specifies the target location on the server.[55]
+
+DELETE
+The DELETE method requests that the target resource delete its state.
+
+CONNECT
+The CONNECT method requests that the intermediary establish a TCP/IP tunnel to the origin server identified by the
+request target. It is often used to secure connections through one or more HTTP proxies with TLS.[56][57] See HTTP
+CONNECT method.
+
+OPTIONS
+The OPTIONS method requests that the target resource transfer the HTTP methods that it supports. This can be used to
+check the functionality of a web server by requesting '*' instead of a specific resource.
+
+TRACE
+The TRACE method requests that the target resource transfer the received request in the response body. That way a client
+can see what (if any) changes or additions have been made by intermediaries.
+
+PATCH
+The PATCH method requests that the target resource modify its state according to the partial update defined in the
+representation enclosed in the request. This can save bandwidth by updating a part of a file or document without having
+to transfer it entirely.[58]
+All general-purpose web servers are required to implement at least the GET and HEAD methods, and all other methods are
+considered optional by the specification.[51]
+
+*****************************************************************************************
+
