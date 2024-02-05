@@ -66,5 +66,24 @@ router.post('/delete', async function (req, res) {
 //     }
 //   });
 
+// updating todo tasks
+router.post('/update', async function (req, res) {
+    try {
+        // Get the task IDs from query parameters
+        const taskIds = Object.keys(req.body);// Assuming the task IDs are passed as an array of IDs in the 'ids' parameter
+
+        // Loop through each task ID and update it
+        for (const taskId of taskIds) {
+            // Using async/await to handle asynchronous operations
+            await TodoList.findByIdAndUpdate(taskId);
+        }
+
+        return res.redirect('back');
+    } catch (error) {
+        console.error(error);
+        res.redirect('/');
+    }
+});
+
 
 module.exports = router;
