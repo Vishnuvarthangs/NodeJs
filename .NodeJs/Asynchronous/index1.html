@@ -1,0 +1,51 @@
+List of basic asynchronous function in Node.js with example
+
+Here's a list of basic asynchronous functions in Node.js, along with examples:
+
+File System (fs Module):
+
+fs.readFile(filename, [options], callback): Reads the contents of a file asynchronously.
+JavaScript
+fs.readFile('data.txt', 'utf8', (err, data) => {
+if (err) {
+console.error(err);
+} else {
+console.log(data);
+}
+});
+Use code with caution. Learn more
+fs.writeFile(filename, data, [options], callback): Writes data to a file asynchronously.
+fs.open(path, flags, [mode], callback): Opens a file asynchronously.
+fs.stat(path, callback): Gets the status of a file or directory asynchronously.
+fs.readdir(path, callback): Reads the contents of a directory asynchronously.
+Timers:
+
+setTimeout(callback, delay, [arg]): Schedules a function to be executed after a specified delay in milliseconds.
+JavaScript
+setTimeout(() => {
+console.log('This will be printed after 2 seconds.');
+}, 2000);
+Use code with caution. Learn more
+setInterval(callback, delay, [arg]): Schedules a function to be executed repeatedly at specified intervals.
+HTTP:
+
+http.get(options, callback): Makes an HTTP GET request asynchronously.
+JavaScript
+http.get('https://www.example.com', (res) => {
+console.log(`Status: ${res.statusCode}`);
+res.on('data', (chunk) => {
+console.log(chunk.toString());
+});
+});
+Use code with caution. Learn more
+http.createServer([options], callback): Creates an HTTP server instance.
+Other Modules:
+
+crypto.randomBytes(size, callback): Generates cryptographically strong pseudorandom bytes asynchronously.
+zlib.deflate(buffer, callback): Compresses a buffer asynchronously.
+child_process.exec(command, [options], callback): Executes a shell command asynchronously.
+Remember:
+
+Node.js offers many more asynchronous functions across various built-in modules and third-party libraries.
+Callbacks are a fundamental way to handle results and errors in asynchronous operations.
+Promises and async/await provide alternative ways to manage asynchronous code more elegantly.

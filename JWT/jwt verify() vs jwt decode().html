@@ -1,0 +1,43 @@
+jwt verify() vs jwt decode() provide examples
+Here's a comparison of jwt.verify() and jwt.decode(), highlighting their key differences and appropriate usage:
+
+**| Feature | jwt.verify() | jwt.decode() |
+|----------------|-----------------------------------|------------------------------------------------------|
+| Purpose | Verifies signature and decodes payload | Decodes payload only (no signature verification) |
+| Security | Secure for sensitive operations | Not secure for authentication/authorization |
+| Usage | Server-side | Client-side or initial inspection on server-side |
+| Arguments | Token, secret key | Token |
+| Return value | Payload (on success), error (on failure) | Payload (on success), error (on invalid format) |
+
+Examples:
+
+1. Server-side authentication:
+
+JavaScript
+// Using jwt.verify() to verify token and access user information
+jwt.verify(token, 'secret_key', (err, decoded) => {
+if (err) {
+// Invalid token
+} else {
+// Access user information from decoded.userId, decoded.role, etc.
+}
+});
+Use code with caution. Learn more
+2. Client-side display of token contents:
+
+JavaScript
+// Using jwt.decode() to display token claims on the client-side
+try {
+const decoded = jwt.decode(token);
+console.log('Token claims:', decoded);
+} catch (error) {
+// Handle invalid token format
+}
+Use code with caution. Learn more
+Key Points:
+
+Always use jwt.verify() for authentication and authorization on the server-side.
+Use jwt.decode() for client-side inspection or non-critical operations.
+Never rely on jwt.decode() alone for security-sensitive actions.
+Keep your secret key confidential and never expose it to the client-side.
+Choose the appropriate method based on the context and security requirements of your application.

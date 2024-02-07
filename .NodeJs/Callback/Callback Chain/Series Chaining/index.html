@@ -1,0 +1,43 @@
+Chaining in Node.js can be achieved using the async npm module. In order to install the async module, we need to run the
+following script in our directory:
+
+npm init
+npm i async
+There are two most commonly used methods for chaining functions provided by the async module:
+
+series(tasks, callback): Each function in tasks run only after the previous function is completed. If any of the
+functions throw an error, the subsequent functions are not executed and the callback is fired with an error value. On
+completion of tasks, the data is passed into the callback function as an array.
+
+Example 2: Series Chaining
+Filename: index.js
+
+const async = require('async');
+
+async.series([
+(callback) => {
+setTimeout(() => {
+console.log('This is the first function');
+callback(null, 1);
+}, 500);
+},
+(callback) => {
+console.log('This is the second function');
+callback(null, 2);
+}
+], (err, results) => {
+if (err) console.error(err);
+console.log(results);
+});
+Run index.js file using the following command:
+
+node index.js
+Output:
+
+This is the first function
+This is the second function
+[ 1, 2 ]
+
+Explanation: Unlike the parallel execution, in this case, the second function wasn’t executed until the first function
+completed its own execution. Similar to the parallel method, the results are only passed to the callback function once
+all the functions in the tasks collection finish execution.

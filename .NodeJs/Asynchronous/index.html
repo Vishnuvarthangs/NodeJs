@@ -1,0 +1,79 @@
+Basic asynchronous node js with example
+
+Here's a comprehensive explanation of basic asynchronous Node.js with examples, incorporating visual aids:
+
+Understanding Asynchronous Programming in Node.js:
+
+Non-Blocking I/O: Node.js doesn't wait for I/O operations (like reading files, fetching data from servers) to finish
+before executing other code. This prevents blocking the main thread and keeps the application responsive.
+
+https://www.geeksforgeeks.org/how-node-js-overcome-the-problem-of-blocking-of-i-o-operations/
+
+Node.js nonblocking I/O
+
+Event Loop: The core mechanism that handles asynchronous operations. It continuously monitors events (like I/O
+completion, timers, user interactions) and executes corresponding callbacks when they occur.
+
+https://www.geeksforgeeks.org/node-js-event-loop/
+
+Node.js event loop
+Key Concepts:
+
+Callbacks: Functions passed as arguments to asynchronous operations, executed when the operation completes.
+Promises: Objects representing the eventual result of an asynchronous operation, used for cleaner code flow and error
+handling.
+async/await: Syntactic sugar built on top of promises, making asynchronous code look more like synchronous code.
+Example with Callbacks:
+
+JavaScript
+const fs = require('fs');
+
+fs.readFile('data.txt', 'utf8', (err, data) => {
+if (err) {
+console.error(err);
+} else {
+console.log(data);
+}
+});
+
+console.log('This will be printed first, before the file is read.');
+Use code with caution. Learn more
+Explanation:
+
+fs.readFile starts reading the file asynchronously.
+The callback function is only called when reading is complete.
+console.log('This will be printed first...') executes immediately, without waiting for file reading.
+When the file is read, the callback logs the data or handles errors.
+Example with Promises and async/await:
+
+JavaScript
+const fs = require('fs').promises;
+
+async function readFile() {
+try {
+const data = await fs.readFile('data.txt', 'utf8');
+console.log(data);
+} catch (err) {
+console.error(err);
+}
+}
+
+readFile();
+console.log('This will also be printed first, before the file is read.');
+Use code with caution. Learn more
+Explanation:
+
+fs.promises.readFile returns a promise that resolves with file data.
+await pauses execution until the promise resolves.
+The try...catch block handles potential errors.
+The code looks more synchronous, but retains asynchronous behavior.
+Benefits of Asynchronous Node.js:
+
+Efficiency: Handles multiple concurrent requests without blocking.
+Scalability: Can handle high loads without performance degradation.
+Responsiveness: Keeps applications responsive even during I/O-intensive tasks.
+Additional Visual Representation:
+
+https://inspector.dev/nodejs-async-engine-in-action-visually/
+
+Node.js asynchronous execution with timeline

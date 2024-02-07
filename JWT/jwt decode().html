@@ -1,0 +1,48 @@
+what is jwt decode();
+
+1
+
+2
+In the context of JWTs, jwt.decode() is a method commonly used to parse and extract the payload data from a JSON Web
+Token. It doesn't verify the token's signature, making it suitable for client-side decoding or initial inspection of
+token contents.
+
+Here's how it works:
+
+Accepts a JWT string: You provide the encoded JWT string as the first argument to the jwt.decode() function.
+Decodes the Base64-encoded payload: It separates the header, payload, and signature parts of the token and decodes the
+Base64-encoded payload portion.
+Returns the payload as a JavaScript object: The function parses the decoded payload into a JavaScript object, containing
+the claims stored within the token.
+Important Considerations:
+
+Client-Side Use: While jwt.decode() is helpful for client-side inspection or debugging, it's crucial to not rely on it
+for security-critical actions. Always verify the token's signature on the server-side for authentication and
+authorization purposes.
+Signature Verification: Use the jwt.verify() method on the server-side to both decode the payload and verify its
+authenticity using a secret key. This ensures the token hasn't been tampered with or forged.
+Library-Specific: The exact implementation of jwt.decode() might vary slightly depending on the JWT library you're
+using. Refer to the documentation for your specific library for details.
+Example (using the jsonwebtoken library):
+
+JavaScript
+const jwt = require('jsonwebtoken');
+
+const token =
+'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c';
+
+try {
+const decoded = jwt.decode(token);
+console.log(decoded); // Output: { userId: 12345, username: 'John Doe', email: 'johndoe@example.com' }
+} catch (error) {
+console.error('Error decoding JWT:', error);
+}
+Use code with caution. Learn more
+Remember:
+
+Use jwt.decode() responsibly for non-sensitive operations or initial token inspection.
+Always verify the token's signature on the server-side for secure authentication and authorization.
+Consult the documentation of your specific JWT library for accurate usage guidelines.
+Sources
+juejin.cn/s/jwt%E8%8E%B7%E5%8F%96%E8%BF%87%E6%9C%9F%E6%97%B6%E9%97%B4
+labs.detectify.com/2021/08/10/how-to-hack-apis-in-2021/

@@ -1,0 +1,69 @@
+https://nodejs.org/en/guides/event-loop-timers-and-nexttick
+
+https://blog.logrocket.com/complete-guide-node-js-event-loop/
+
+********************************************************************
+
+
+what is Event Loop in Asynchronous Node.js with example
+
+Here's a comprehensive explanation of the Event Loop in asynchronous Node.js, including examples and images:
+
+Understanding the Event Loop:
+
+The heart of Node.js's non-blocking architecture.
+Continuously monitors events (I/O completion, timers, user interactions) and executes corresponding callbacks.
+Allows Node.js to handle multiple concurrent operations without blocking the main thread.
+Process Flow:
+
+JavaScript Code Execution:
+
+Node.js starts executing JavaScript code on the main thread.
+When it encounters an asynchronous operation (like reading a file), it delegates the task to the system kernel and moves
+on to other code.
+The kernel handles the operation in the background and signals Node.js when it's complete.
+
+https://www.pabbly.com/tutorials/node-js-event-loops/
+
+Node.js event loop process flow
+
+Event Queues:
+
+Completed asynchronous operations are added to different event queues based on their types (timers, I/O, close
+callbacks, etc.).
+Event Loop Phases:
+
+The event loop continuously iterates through the following phases:
+timers: Executes scheduled timer callbacks.
+pending callbacks: Executes pending callbacks from I/O operations and other events.
+idle, prepare: Internal bookkeeping tasks.
+poll: Checks for new I/O events and executes corresponding callbacks.
+check: Executes setImmediate() callbacks.
+close callbacks: Executes close events for closed connections.
+Callback Execution:
+
+When a phase's queue has pending callbacks, the event loop dequeues them and executes them on the main thread.
+Only one callback runs at a time, ensuring single-threaded execution.
+Example:
+
+JavaScript
+const fs = require('fs');
+
+fs.readFile('data.txt', 'utf8', (err, data) => {
+console.log(data); // Callback executed when file reading completes
+});
+
+console.log('This will be printed first.'); // Main thread continues execution
+Use code with caution. Learn more
+Key Points:
+
+Single-Threaded but Highly Concurrent: Node.js executes JavaScript code on a single thread, but the event loop enables
+efficient handling of multiple concurrent operations.
+Non-Blocking I/O: Asynchronous operations don't block the main thread, ensuring responsiveness.
+Callback-Driven: Asynchronous results are handled through callbacks, promises, or async/await.
+Phase-Based Execution: The event loop prioritizes different events based on their phases.
+Visual Representation:
+
+https://javascript.plainenglish.io/node-js-event-loop-explained-d27647ec8d53
+
+Node.js event loop phases and queues
