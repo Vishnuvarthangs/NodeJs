@@ -1,0 +1,80 @@
+User Registration
+-----------------
+"method": "POST",
+"header": [
+{
+"key": "Accept",
+"value": "application/json",
+"type": "default"
+}
+],
+"body": {
+"mode": "raw",
+
+http://localhost:8000/api/user/register
+
+{
+"name": "Vishnu",
+"email": "vishnu@example.com",
+"password":"123456",
+"password_confirmation":"123456",
+"tc": true
+}
+}
+
+****************************************************************
+"method": "POST"
+
+http://localhost:8000/api/user/login
+
+{
+"email": "vishnu@example.com",
+"password":"12345"
+}
+
+****************************************************************
+"method": "POST"
+
+http://localhost:8000/api/user/changepassword
+
+{
+"password": "hello",
+"password_confirmation": "hello"
+}
+
+****************************************************************
+"method": "GET"
+
+http://localhost:8000/api/user/loggeduser
+
+{
+"email": "vishnu@example.com",
+"password":"hello"
+}
+
+****************************************************************
+"method": "POST"
+
+http://localhost:8000/api/user/send-reset-password-email
+
+{
+"email": "vishnu@example.com"
+}
+
+http://127.0.0.1:3000/api/user/reset/65c1da6791c276544d4581fe/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NWMxZGE2NzkxYzI3NjU0NGQ0NTgxZmUiLCJpYXQiOjE3MDcyMDU3NjQsImV4cCI6MTcwNzIwNjY2NH0.7h8dvKRYNJ_a8YPeG0OrBNXq3A3GHX-zo0LeL_w8kuc
+
+http://127.0.0.1:3000/api/user/reset/65c1da6791c276544d4581fe/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NWMxZGE2NzkxYzI3NjU0NGQ0NTgxZmUiLCJpYXQiOjE3MDcyMTEwMzEsImV4cCI6MTcwNzIxMTkzMX0.YvvqR6AofgkTpOtkPAqTkbE6okHi3z_J9RlrMCKkvq0
+
+****************************************************************
+
+"method": "POST"
+
+http://localhost:8000/api/user/reset-password/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NWMxZGE2NzkxYzI3NjU0NGQ0NTgxZmUiLCJpYXQiOjE3MDcyMTEwMzEsImV4cCI6MTcwNzIxMTkzMX0.YvvqR6AofgkTpOtkPAqTkbE6okHi3z_J9RlrMCKkvq0
+
+****************************************************************
+
+
+****************************************************************
+
+
+****************************************************************

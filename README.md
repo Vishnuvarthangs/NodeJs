@@ -4,7 +4,6 @@
 
 ### git Link:- https://github.com/King-AJr/rbacNodeServer
 
-
 ## To Run this Project via NPM follow below:
 
 ```bash
@@ -36,7 +35,7 @@ git commit -m "Initial Commit: RBAC_JWT_Auth_API"
 
 git branch -M RBAC_JWT_Auth_API
 
-git remote add origin https://github.com/Vishnuvarthangs/Vishnuvarthan.git
+git remote add origin https://github.com/Vishnuvarthangs/NodeJs.git
 
 --git push -u origin RBAC_JWT_Auth_API
 
@@ -128,25 +127,25 @@ To create our employee schema, copy the code below:
 const { Schema, model } = require("mongoose");
 
 const EmployeeSchema = new Schema(
-  {
-    name: {
-      type: String,
-      required: true,
-    },
-    email: {
-      type: String,
-      required: true,
-    },
-    role: {
-      type: String,
-      enum: ["se", "marketer", "HR", "admin"],
-    },
-    password: {
-      type: String,
-      required: true,
-    },
-  },
-  { timestamps: true }
+{
+name: {
+type: String,
+required: true,
+},
+email: {
+type: String,
+required: true,
+},
+role: {
+type: String,
+enum: ["se", "marketer", "HR", "admin"],
+},
+password: {
+type: String,
+required: true,
+},
+},
+{ timestamps: true }
 );
 
 module.exports = model("Employee", EmployeeSchema);
@@ -166,12 +165,12 @@ const bycrypt = require('brypt');
 const Employee = require("../Database/employee");
 
 const employeeSignup = async (req, role, res) => {
-  try {
-    //Get employee from database with same name if any
-    const validateEmployeename = async (name) => {
-      let employee = await Employee.findOne({ name });
-      return employee ? false : true;
-    };
+try {
+//Get employee from database with same name if any
+const validateEmployeename = async (name) => {
+let employee = await Employee.findOne({ name });
+return employee ? false : true;
+};
 
     //Get employee from database with same email if any
     const validateEmail = async (email) => {
@@ -195,24 +194,25 @@ const employeeSignup = async (req, role, res) => {
     }
 
 // Hash password using bcrypt
-    const password = await bcrypt.hash(req.password, 12);
-    // create a new user
-    const newEmployee = new Employee ({
-      ...req,
-      password,
-      role
-    });
+const password = await bcrypt.hash(req.password, 12);
+// create a new user
+const newEmployee = new Employee ({
+...req,
+password,
+role
+});
 
     await newEmployee .save();
     return res.status(201).json({
       message: "Hurry! now you are successfully registred. Please nor login."
     });
-  } catch (err) {
-    // Implement logger function if any
-    return res.status(500).json({
-      message: `${err.message}`
-    });
-  }
+
+} catch (err) {
+// Implement logger function if any
+return res.status(500).json({
+message: `${err.message}`
+});
+}
 };
 With that done, we have set up our signup logic. Let's set up our login logic.
 
@@ -231,38 +231,38 @@ require('dotenv').config();
 const Employee = require("../Database/employee");
 
 const employeeLogin = async (req, role, res) => {
-  let { name, password } = req;
+let { name, password } = req;
 
-  // First Check if the user exist in the database
-  const employee = await Employee.findOne({ name });
-  if (!employee) {
-    return res.status(404).json({
-      message: "Employee name is not found. Invalid login credentials.",
-      success: false,
-    });
-  }
-  // We will check the if the employee is logging in via the route for his departemnt
-  if (employee.role !== role) {
-    return res.status(403).json({
-      message: "Please make sure you are logging in from the right portal.",
-      success: false,
-    });
-  }
+// First Check if the user exist in the database
+const employee = await Employee.findOne({ name });
+if (!employee) {
+return res.status(404).json({
+message: "Employee name is not found. Invalid login credentials.",
+success: false,
+});
+}
+// We will check the if the employee is logging in via the route for his departemnt
+if (employee.role !== role) {
+return res.status(403).json({
+message: "Please make sure you are logging in from the right portal.",
+success: false,
+});
+}
 
-  // That means the employee is existing and trying to signin fro the right portal
-  // Now check if the password match
-  let isMatch = await bcrypt.compare(password, employee.password);
-  if (isMatch) {
-    // if the password match Sign a the token and issue it to the employee
-    let token = jwt.sign(
-      {
-        role: employee.role,
-        name: employee.name,
-        email: employee.email,
-      },
-      process.env.APP_SECRET,
-      { expiresIn: "3 days" }
-    );
+// That means the employee is existing and trying to signin fro the right portal
+// Now check if the password match
+let isMatch = await bcrypt.compare(password, employee.password);
+if (isMatch) {
+// if the password match Sign a the token and issue it to the employee
+let token = jwt.sign(
+{
+role: employee.role,
+name: employee.name,
+email: employee.email,
+},
+process.env.APP_SECRET,
+{ expiresIn: "3 days" }
+);
 
     let result = {
       name: employee.name,
@@ -276,46 +276,50 @@ const employeeLogin = async (req, role, res) => {
       ...result,
       message: "You are now logged in.",
     });
-  } else {
-    return res.status(403).json({
-      message: "Incorrect password.",
-    });
-  }
+
+} else {
+return res.status(403).json({
+message: "Incorrect password.",
+});
+}
 };
 Adding our Role-Based Access System to our Server
 Every logged-in user has a JWT token; we'll create a middleware that checks for a token. This middleware will also verify the token.
 
 We'll also create another middleware for restricting access to certain routes to only users with specific roles.
 
-/**
- * @DESC Verify JWT from authorization header Middleware
- */
-const employeeAuth = (req, res, next) => {
+/\*\*
+
+- @DESC Verify JWT from authorization header Middleware
+  \*/
+  const employeeAuth = (req, res, next) => {
   const authHeader = req.headers["authorization"];
   console.log(process.env.APP_SECRET);
   if (!authHeader) return res.sendStatus(403);
   console.log(authHeader); // Bearer token
   const token = authHeader.split(" ")[1];
   jwt.verify(token, process.env.APP_SECRET, (err, decoded) => {
-    console.log("verifying");
-    if (err) return res.sendStatus(403); //invalid token
+  console.log("verifying");
+  if (err) return res.sendStatus(403); //invalid token
 
-    console.log(decoded); //for correct token
-    next();
+      console.log(decoded); //for correct token
+      next();
+
   });
-};
+  };
 
-/**
- * @DESC Check Role Middleware
- */
-const checkRole = (roles) => async (req, res, next) => {
+/\*\*
+
+- @DESC Check Role Middleware
+  \*/
+  const checkRole = (roles) => async (req, res, next) => {
   let { name } = req.body;
 
-  //retrieve employee info from DB
-  const employee = await Employee.findOne({ name });
-  !roles.includes(employee.role)
-    ? res.status(401).json("Sorry you do not have access to this route")
-    : next();
+//retrieve employee info from DB
+const employee = await Employee.findOne({ name });
+!roles.includes(employee.role)
+? res.status(401).json("Sorry you do not have access to this route")
+: next();
 };
 The employeeAuth function checks for the presence of a JWT. If it finds one, it then verifies it.
 
@@ -329,53 +333,51 @@ Login routes for each department
 Protected routes for each department
 // Software engineering Registeration Route
 app.post("/register-se", (req, res) => {
-  employeeSignup(req.body, "se", res);
+employeeSignup(req.body, "se", res);
 });
 
 //Marketer Registration Route
 app.post("/register-marketer", async (req, res) => {
-  await employeeSignup(req.body, "marketer", res);
+await employeeSignup(req.body, "marketer", res);
 });
 
 //Human resource Registration route
 app.post("/register-hr", async (req, res) => {
-  await employeeSignup(req.body, "hr", res);
+await employeeSignup(req.body, "hr", res);
 });
 
 // Software engineers Login Route
 app.post("/Login-se", async (req, res) => {
-  await employeeLogin(req.body, "se", res);
+await employeeLogin(req.body, "se", res);
 });
 
 // Human Resource Login Route
 app.post("/Login-hr", async (req, res) => {
-  await employeeLogin(req.body, "hr", res);
+await employeeLogin(req.body, "hr", res);
 });
 
 // Marketer Login Route
 app.post("/Login-marketer", async (req, res) => {
-  await employeeLogin(req.body, "marketer", res);
+await employeeLogin(req.body, "marketer", res);
 });
 
 app.get("/se-protected", employeeAuth, checkRole(["se"]), async (req, res) => {
- return res.json(`welcome ${req.body.name}`);
+return res.json(`welcome ${req.body.name}`);
 });
 
 app.get(
-  "/marketers-protected",
-  employeeAuth,
-  checkRole(["marketer"]),
-  async (req, res) => {
-    return res.json(`welcome ${req.body.name}`);
-  }
+"/marketers-protected",
+employeeAuth,
+checkRole(["marketer"]),
+async (req, res) => {
+return res.json(`welcome ${req.body.name}`);
+}
 );
 
 app.get("/hr-protected", employeeAuth, checkRole(["hr"]), async (req, res) => {
-  return res.json(`welcome ${req.body.name}`);
+return res.json(`welcome ${req.body.name}`);
 });
-
 
 ``
 
 ## There is a Folder "PostmanEndpoints" which has Postman Collection File You can import this file in your postman to test this API
-

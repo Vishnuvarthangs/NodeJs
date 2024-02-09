@@ -13,7 +13,7 @@ const EmployeeSchema = new Schema(
     },
     role: {
       type: String,
-      enum: ["se", "marketer", "HR", "admin"]
+      enum: ["se", "marketer", "hr", "admin"]
     },
     password: {
       type: String,

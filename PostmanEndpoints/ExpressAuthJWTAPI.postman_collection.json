@@ -1,0 +1,278 @@
+{
+	"info": {
+		"_postman_id": "16638a68-25e6-490c-a992-5de6a794d47b",
+		"name": "ExpressAuthJWTAPI",
+		"description": "# 🚀 Get started here\n\n[https://www.youtube.com/watch?v=2pn2Bspt6EM](https://www.youtube.com/watch?v=2pn2Bspt6EM)\n\nThis template guides you through CRUD operations (GET, POST), variables, and tests.\n\n## 🔖 **How to use this template**\n\n#### **Step 1: Send requests**\n\nRESTful APIs allow you to perform CRUD operations using the POST, GET, PUT, and DELETE HTTP methods.\n\nThis collection contains each of these [request](https://learning.postman.com/docs/sending-requests/requests/) types. Open each request and click \"Send\" to see what happens.\n\n#### **Step 2: View responses**\n\nObserve the response tab for status code (200 OK), response time, and size.\n\n#### **Step 3: Send new Body data**\n\nUpdate or add new data in \"Body\" in the POST request. Typically, Body data is also used in PUT request.\n\n```\n{\n    \"name\": \"Add your name in the body\"\n}\n\n ```\n\n#### **Step 4: Update the variable**\n\nVariables enable you to store and reuse values in Postman. We have created a [variable](https://learning.postman.com/docs/sending-requests/variables/) called `base_url` with the sample request [https://postman-api-learner.glitch.me](https://postman-api-learner.glitch.me). Replace it with your API endpoint to customize this collection.\n\n#### **Step 5: Add tests in the \"Tests\" tab**\n\nTests help you confirm that your API is working as expected. You can write test scripts in JavaScript and view the output in the \"Test Results\" tab.\n\n#### **Step 6: Add Requests**\n\n[](http://localhost:8000/api/user/registerEndFragment)[http://localhost:8000/api/user/register](http://localhost:8000/api/user/registerEndFragment)\n\n<img src=\"https://content.pstmn.io/61f98713-0d42-43a0-9f9c-ca9988154346/aW1hZ2UucG5n\" width=\"1920\" height=\"1030\">\n\n<img src=\"https://content.pstmn.io/e46fe26f-96cb-40ee-af6a-cae558845d52/aW1hZ2UucG5n\" alt=\"Login\" width=\"616\" height=\"370\">\n\n[http://localhost:8000/api/user/login](http://localhost:8000/api/user/registerEndFragment)\n\n<img src=\"https://content.pstmn.io/9916b968-3c1d-4511-ac79-4bf5db6761cc/aW1hZ2UucG5n\" alt=\"Change%20Password\" width=\"616\" height=\"370\">\n\n[http://localhost:8000/api/user/changepassword](http://localhost:8000/api/user/registerEndFragment)\n\n<img src=\"https://content.pstmn.io/466aa197-e683-49ad-be41-9c68895af780/aW1hZ2UucG5n\" alt=\"Logged%20User\" width=\"1920\" height=\"1030\">\n\n[http://localhost:8000/api/user/loggeduser](http://localhost:8000/api/user/registerEndFragment)\n\n<img src=\"https://content.pstmn.io/23417483-9c9c-4c51-8bdb-b17dd2a3f260/aW1hZ2UucG5n\" alt=\"Send%20Reset%20Password%20Email\" width=\"616\" height=\"330\">\n\n[http://localhost:8000/api/user/send-reset-password-email](http://localhost:8000/api/user/registerEndFragment)\n\n<img src=\"https://content.pstmn.io/5beee6b7-fb00-4f1e-8bdd-af96573785d5/aW1hZ2UucG5n\" width=\"616\" height=\"330\">\n\n[http://localhost:8000/api/user/register](http://localhost:8000/api/user/registerEndFragment)\n\n💪 Pro tips\n\n- Use folders to group related requests and organize the collection.\n- Add more [scripts](https://learning.postman.com/docs/writing-scripts/intro-to-scripts/) in \"Tests\" to verify if the API works as expected and execute workflows.\n    \n\n## 💡Related templates\n\n[API testing basics](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9a37a28-055b-49cd-8c7e-97494a21eb54&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[API documentation](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9c28f47-1253-44af-a2f3-20dce4da1f18&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[Authorization methods](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=31a9a6ed-4cdf-4ced-984c-d12c9aec1c27&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31957709"
+	},
+	"item": [
+		{
+			"name": "UserRegistration",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Vishnuvarthan\",\r\n    \"email\": \"vishnuvarthan@example.com\",\r\n    \"password\": \"12345\",\r\n    \"password_confirmation\": \"12345\",\r\n    \"tc\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/user/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"user",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"vishnu@example.com\",\r\n    \"password\":\"hello\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/user/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ChangePwd",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NWMxZGE2NzkxYzI3NjU0NGQ0NTgxZmUiLCJpYXQiOjE3MDcyMDQ4NDgsImV4cCI6MTcwNzYzNjg0OH0.QRTJhEe9sBQyZRwNf0VQuAjhYncramOXDRQlr8T1RZ8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"password\": \"hello\",\r\n    \"password_confirmation\": \"hello\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/user/changepassword",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"user",
+						"changepassword"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LoggedUser",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NWMxZGE2NzkxYzI3NjU0NGQ0NTgxZmUiLCJpYXQiOjE3MDcyMDUxNjcsImV4cCI6MTcwNzYzNzE2N30.Gly4Ck73oWHQj-Xd2-ywGYX3Ke1hUe9JWE6NbZcb-lQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"vishnu@example.com\",\r\n    \"password\":\"hello\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/user/loggeduser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"user",
+						"loggeduser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SendPwdReset",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"email\": \"vishnu@example.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/user/send-reset-password-email",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"user",
+						"send-reset-password-email"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Password Reset",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"password\": \"hello\",\r\n    \"password_confirmation\": \"hello\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/user/reset-password/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NWMxZGE2NzkxYzI3NjU0NGQ0NTgxZmUiLCJpYXQiOjE3MDcyMTEwMzEsImV4cCI6MTcwNzIxMTkzMX0.YvvqR6AofgkTpOtkPAqTkbE6okHi3z_J9RlrMCKkvq0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"user",
+						"reset-password",
+						"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NWMxZGE2NzkxYzI3NjU0NGQ0NTgxZmUiLCJpYXQiOjE3MDcyMTEwMzEsImV4cCI6MTcwNzIxMTkzMX0.YvvqR6AofgkTpOtkPAqTkbE6okHi3z_J9RlrMCKkvq0"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer"
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "id",
+			"value": "1"
+		},
+		{
+			"key": "base_url",
+			"value": "https://postman-rest-api-learner.glitch.me/"
+		}
+	]
+} 
