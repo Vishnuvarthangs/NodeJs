@@ -3,10 +3,10 @@ UserRegister     POST http://localhost:4000/users/register
 Body 
 ---
 {
-"email": "vishnu@gmail.com",
-"firstName": "vishnu",
-"lastName": "varthan",
-"password": "vishnu",
+"email": "User@gmail.com",
+"firstName": "Vishnuvarthan",
+"lastName": "GS",
+"password": "Userpwd@1",
 "role": "User"
 }
 
@@ -17,8 +17,8 @@ UserAuthenticate    POST http://localhost:4000/users/Authenticate
 Body 
 ---
 {
-"email": "vishnu@gmail.com",
-"password": "vishnu"
+"email": "User@gmail.com",
+"password": "Userpwd@1"
 }
 
 **********************************************
@@ -29,7 +29,7 @@ Headers
 -------
  Key : Authorization
  Value: Bearer
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWM0Yzk1M2I5NmNlNjBmM2M2MDY4ZGIiLCJyb2xlIjoiVXNlciIsImlhdCI6MTcwNzQ1NDIyOSwiZXhwIjoxNzA4MDU5MDI5fQ.WLUGDiE5fOlqhJZQjgCiQZ-cYyCXwd0CCt78Sep1ceQ
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWM1ZjNlYzhhYmM3MTNlOTBkMDU5N2QiLCJyb2xlIjoiVXNlciIsImlhdCI6MTcwNzQ3Mjk1OSwiZXhwIjoxNzA4MDc3NzU5fQ.yAVYRspvxEfR1HJyXanRAn8Kzi2x5hKvLwkAu0TGz0o
 
 **********************************************
 
@@ -39,15 +39,14 @@ Headers
 -------
 Key : Authorization
 Value: Bearer
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWM0Yzk1M2I5NmNlNjBmM2M2MDY4ZGIiLCJyb2xlIjoiVXNlciIsImlhdCI6MTcwNzQ1NDIyOSwiZXhwIjoxNzA4MDU5MDI5fQ.WLUGDiE5fOlqhJZQjgCiQZ-cYyCXwd0CCt78Sep1ceQ
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWM1ZjNlYzhhYmM3MTNlOTBkMDU5N2QiLCJyb2xlIjoiVXNlciIsImlhdCI6MTcwNzQ3Mjk1OSwiZXhwIjoxNzA4MDc3NzU5fQ.yAVYRspvxEfR1HJyXanRAn8Kzi2x5hKvLwkAu0TGz0o
 
 Body
 ---
 {
-"email": "vishnu@gmail.com",
-"password": "vishnu"
+"email": "User@gmail.com",
+"password": "Userpwd@1"
 }
-
 **********************************************
 
 AdminRegister  POST http://localhost:4000/users/register
@@ -55,10 +54,10 @@ AdminRegister  POST http://localhost:4000/users/register
 Body
 ---
 {
-"email": "vishnuvarthan@gmail.com",
-"firstName": "vishnuvarthan",
-"lastName": "gs",
-"password": "vishnu",
+"email": "Admin@gmail.com",
+"firstName": "Vishnuvarthan",
+"lastName": "GS",
+"password": "Adminpwd@1",
 "role": "Admin"
 }
 
@@ -69,8 +68,51 @@ AdminAuthenticate POST http://localhost:4000/users/Authenticate
 Body
 ---
 {
-"email": "vishnuvarthan@gmail.com",
-"password": "vishnu"
+"email": "Admin@gmail.com",
+"password": "Adminpwd@1"
 }
+
+**********************************************
+
+AdminCurrentUser   GET http://localhost:4000/users/Current
+----------------
+
+Headers
+-------
+Key : Authorization
+Value: Bearer
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWM1ZmU2NThhYmM3MTNlOTBkMDU5N2UiLCJyb2xlIjoiQWRtaW4iLCJpYXQiOjE3MDc0NzYwNjQsImV4cCI6MTcwODA4MDg2NH0.XXLYXu5KgPZya-6zyraicQmJ6fUT5vhzgieiEmqIwRo
+
+**********************************************
+
+Authorize   GET http://localhost:4000/users
+---------
+
+Headers
+-------
+Key : Authorization
+Value: Bearer
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWM1ZmU2NThhYmM3MTNlOTBkMDU5N2UiLCJyb2xlIjoiQWRtaW4iLCJpYXQiOjE3MDc0NzYwNjQsImV4cCI6MTcwODA4MDg2NH0.XXLYXu5KgPZya-6zyraicQmJ6fUT5vhzgieiEmqIwRo
+
+
+Body
+{
+"email": "Admin@gmail.com",
+"password": "Adminpwd@1"
+}
+
+**********************************************
+getbyID  GET http://localhost:4000/users/65c5fe658abc713e90d0597e
+--------
+
+**********************************************
+
+Update PUT  http://localhost:4000/users/65c5f3ec8abc713e90d0597d
+--------
+
+
+**********************************************
+
+Delete DELETE http://localhost:4000/users/65c5f3ec8abc713e90d0597d
 
 **********************************************
