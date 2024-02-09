@@ -1,0 +1,76 @@
+UserRegister     POST http://localhost:4000/users/register
+-----------
+Body 
+---
+{
+"email": "vishnu@gmail.com",
+"firstName": "vishnu",
+"lastName": "varthan",
+"password": "vishnu",
+"role": "User"
+}
+
+**********************************************
+
+UserAuthenticate    POST http://localhost:4000/users/Authenticate
+---------------
+Body 
+---
+{
+"email": "vishnu@gmail.com",
+"password": "vishnu"
+}
+
+**********************************************
+
+Current User   GET http://localhost:4000/users/Authenticate
+------------
+Headers 
+-------
+ Key : Authorization
+ Value: Bearer
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWM0Yzk1M2I5NmNlNjBmM2M2MDY4ZGIiLCJyb2xlIjoiVXNlciIsImlhdCI6MTcwNzQ1NDIyOSwiZXhwIjoxNzA4MDU5MDI5fQ.WLUGDiE5fOlqhJZQjgCiQZ-cYyCXwd0CCt78Sep1ceQ
+
+**********************************************
+
+UnAuthorize    GET http://localhost:4000/users
+------------  
+Headers
+-------
+Key : Authorization
+Value: Bearer
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWM0Yzk1M2I5NmNlNjBmM2M2MDY4ZGIiLCJyb2xlIjoiVXNlciIsImlhdCI6MTcwNzQ1NDIyOSwiZXhwIjoxNzA4MDU5MDI5fQ.WLUGDiE5fOlqhJZQjgCiQZ-cYyCXwd0CCt78Sep1ceQ
+
+Body
+---
+{
+"email": "vishnu@gmail.com",
+"password": "vishnu"
+}
+
+**********************************************
+
+AdminRegister  POST http://localhost:4000/users/register
+-----------
+Body
+---
+{
+"email": "vishnuvarthan@gmail.com",
+"firstName": "vishnuvarthan",
+"lastName": "gs",
+"password": "vishnu",
+"role": "Admin"
+}
+
+**********************************************
+
+AdminAuthenticate POST http://localhost:4000/users/Authenticate
+---------------
+Body
+---
+{
+"email": "vishnuvarthan@gmail.com",
+"password": "vishnu"
+}
+
+**********************************************

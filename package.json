@@ -1,0 +1,42 @@
+{
+  "name": "rbac_api_taskmgmt",
+  "version": "1.0.0",
+  "description": "rbac_api_taskmgmt",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vishnuvarthangs/NodeJs.git"
+  },
+  "keywords": [
+    "RBAC_API_TASKMGMT",
+    "RBAC_API_TASKMGMT"
+  ],
+  "author": "Vishnuvarthan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Vishnuvarthangs/Vishnuvarthan/issues"
+  },
+  "homepage": "https://github.com/Vishnuvarthangs/Vishnuvarthan#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "express-jwt": "^6.0.0",
+    "http-errors": "~1.6.3",
+    "jade": "~1.11.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.25",
+    "morgan": "~1.9.1",
+    "rootpath": "^0.1.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
+}
