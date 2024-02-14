@@ -20,12 +20,12 @@ To start server use `npm start`<br/>
 
 # Models
 
-[`User`](https://github.com/Vishnuvarthangs/NodeJs/tree/RBAC_JWT_API_CRUD/main/models/user.js) Model is kept for Authentication, Authorization and Validation purpose.<br/>
-[`Post`](https://github.com/Vishnuvarthangs/NodeJs/tree/RBAC_JWT_API_CRUD/main/models/posts.js) Model for CRUD APIs
+[`User`](https://github.com/Vishnuvarthangs/NodeJs/tree/RBAC_JWT_API_CRUD/models/user.js) Model is kept for Authentication, Authorization and Validation purpose.<br/>
+[`Post`](https://github.com/Vishnuvarthangs/NodeJs/tree/RBAC_JWT_API_CRUD/models/posts.js) Model for CRUD APIs
 
 # API Flows
 
-Import this [`Postman collection`](https://github.com/Vishnuvarthangs/NodeJs/tree/RBAC_JWT_API_CRUD/main/AttainU.postman_collection.json) to view all important APIs.<br/>
+Import this [`Postman collection`](https://github.com/Vishnuvarthangs/NodeJs/blob/RBAC_JWT_API_CRUD/PostMan_Endpoints/AttainU.postman_collection.json) to view all important APIs.<br/>
 `api/auth/login` and `api/auth/signup` are public endpoints.<br/>
 Rest all other CRUD endpoints can only be accessed via proving that a user is authenticated as well as authorized.
 
@@ -39,12 +39,12 @@ Rest all other CRUD endpoints can only be accessed via proving that a user is au
 
 # Folder overview
 
-[`validator`](https://github.com/Vishnuvarthangs/NodeJs/tree/RBAC_JWT_API_CRUD/tree/main/validator) : Has all necessary logic to validate the User Model fields.<br/>
-[`routes`](https://github.com/Vishnuvarthangs/NodeJs/tree/RBAC_JWT_API_CRUD/tree/main/routes) : Has all API endpoints and defines what middlewares should be used for a particular endpoint.<br/>
-[`model`](https://github.com/Vishnuvarthangs/NodeJs/tree/RBAC_JWT_API_CRUD/tree/main/models) : Has DB schema that is followed for collections throughout the project.<br/>
-[`middleware`](https://github.com/Vishnuvarthangs/NodeJs/tree/RBAC_JWT_API_CRUD/tree/main/middleware) : Has necessary logic to check authourization and access level of a particular user.<br/>
-[`controller`](https://github.com/Vishnuvarthangs/NodeJs/tree/RBAC_JWT_API_CRUD/tree/main/controllers) : Has the logic to handle the incoming request and perform the proper DB operations.<br/>
-[`config`](https://github.com/Vishnuvarthangs/NodeJs/tree/RBAC_JWT_API_CRUD/tree/main/config) : Has config for JWT secrets.
+[`validator`](https://github.com/Vishnuvarthangs/NodeJs/tree/RBAC_JWT_API_CRUD/validator) : Has all necessary logic to validate the User Model fields.<br/>
+[`routes`](https://github.com/Vishnuvarthangs/NodeJs/tree/RBAC_JWT_API_CRUD/routes) : Has all API endpoints and defines what middlewares should be used for a particular endpoint.<br/>
+[`model`](https://github.com/Vishnuvarthangs/NodeJs/tree/RBAC_JWT_API_CRUD/models) : Has DB schema that is followed for collections throughout the project.<br/>
+[`middleware`](https://github.com/Vishnuvarthangs/NodeJs/tree/RBAC_JWT_API_CRUD/middleware) : Has necessary logic to check authourization and access level of a particular user.<br/>
+[`controller`](https://github.com/Vishnuvarthangs/NodeJs/tree/RBAC_JWT_API_CRUD/controllers) : Has the logic to handle the incoming request and perform the proper DB operations.<br/>
+[`config`](https://github.com/Vishnuvarthangs/NodeJs/tree/RBAC_JWT_API_CRUD/config) : Has config for JWT secrets.
 
 ``
 
