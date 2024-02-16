@@ -59,8 +59,8 @@ npx kill-port --port 8080,5000,3000      --- Kill multiple ports
 
 # Models
 
-[`User`](https://github.com/Vishnuvarthangs/NodeJs/tree/RBAC_JWT_API_CRUD/models/user.js) Model is kept for Authentication, Authorization and Validation purpose.<br/>
-[`Post`](https://github.com/Vishnuvarthangs/NodeJs/tree/RBAC_JWT_API_CRUD/models/posts.js) Model for CRUD APIs
+[`User`](https://github.com/Vishnuvarthangs/NodeJs/tree/RBAC_JWT_MVC_API_CRUD_MongoDB/App/Models/user.js) Model is kept for Authentication, Authorization and Validation purpose.<br/>
+[`Post`](https://github.com/Vishnuvarthangs/NodeJs/tree/RBAC_JWT_MVC_API_CRUD_MongoDB/App/Models/posts.js) Model for CRUD APIs
 
 # API Flows
 
@@ -78,12 +78,12 @@ Rest all other CRUD endpoints can only be accessed via proving that a user is au
 
 # Folder overview
 
-[`validator`](https://github.com/Vishnuvarthangs/NodeJs/tree/RBAC_JWT_API_CRUD/validator) : Has all necessary logic to validate the User Model fields.<br/>
-[`routes`](https://github.com/Vishnuvarthangs/NodeJs/tree/RBAC_JWT_API_CRUD/routes) : Has all API endpoints and defines what middlewares should be used for a particular endpoint.<br/>
-[`model`](https://github.com/Vishnuvarthangs/NodeJs/tree/RBAC_JWT_API_CRUD/models) : Has DB schema that is followed for collections throughout the project.<br/>
-[`middleware`](https://github.com/Vishnuvarthangs/NodeJs/tree/RBAC_JWT_API_CRUD/middleware) : Has necessary logic to check authourization and access level of a particular user.<br/>
-[`controller`](https://github.com/Vishnuvarthangs/NodeJs/tree/RBAC_JWT_API_CRUD/controllers) : Has the logic to handle the incoming request and perform the proper DB operations.<br/>
-[`config`](https://github.com/Vishnuvarthangs/NodeJs/tree/RBAC_JWT_API_CRUD/config) : Has config for JWT secrets.
+[`validator`](https://github.com/Vishnuvarthangs/NodeJs/tree/RBAC_JWT_MVC_API_CRUD_MongoDB/App/Middlewares/validator) : Has all necessary logic to validate the User Model fields.<br/>
+[`routes`](https://github.com/Vishnuvarthangs/NodeJs/tree/RBAC_JWT_MVC_API_CRUD_MongoDB/App/Routes) : Has all API endpoints and defines what middlewares should be used for a particular endpoint.<br/>
+[`model`](https://github.com/Vishnuvarthangs/NodeJs/tree/RBAC_JWT_MVC_API_CRUD_MongoDB/App/Models) : Has DB schema that is followed for collections throughout the project.<br/>
+[`middleware`](https://github.com/Vishnuvarthangs/NodeJs/tree/RBAC_JWT_MVC_API_CRUD_MongoDB/App/Middlewares) : Has necessary logic to check authourization and access level of a particular user.<br/>
+[`controller`](https://github.com/Vishnuvarthangs/NodeJs/tree/RBAC_JWT_MVC_API_CRUD_MongoDB/App/Controllers) : Has the logic to handle the incoming request and perform the proper DB operations.<br/>
+[`config`](https://github.com/Vishnuvarthangs/NodeJs/tree/RBAC_JWT_MVC_API_CRUD_MongoDB/App/Config) : Has config for JWT secrets.
 
 ``
 

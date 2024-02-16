@@ -8,6 +8,8 @@ const userRoutes = require('./App/Routes/userRoutes');
 require('dotenv').config({ path: 'ENV_FILENAME' });
 const bodyParser = require('body-parser');
 // const { signup, login, refreshToken } = require('./App/Controllers/authController');
+const { User } = require('./App/Models/User');
+const bcrypt = require('bcryptjs');
 
 // Middleware
 app.use(express.json());
@@ -18,6 +20,17 @@ const URI = process.env.DB_URL;
 mongoose.connect(URI, dbConfig.options)
     .then(() => console.log('Connected to MongoDB'))
     .catch(err => console.error('MongoDB connection error:', err));
+
+const db = mongoose.connection;
+db.once("open", async () => {
+  if ((await User.countDocuments().exec()) > 0) return;
+  let salt = await bcrypt.genSalt(10);
+  let password = await bcrypt.hash("admin", salt);
+  Promise.all([
+    User.create({name: "admin",email : "admin@admin.com", password : password, role : {isAdmin : true}}),
+  ]).then(() => console.log("Added Admin User"));
+});
+app.use(express.json());
 
 // Routes
 app.use('/api/auth', authRoutes);
