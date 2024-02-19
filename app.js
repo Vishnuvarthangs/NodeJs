@@ -9,6 +9,10 @@ require('dotenv').config({ path: 'ENV_FILENAME' });
 const bodyParser = require('body-parser');
 // const { signup, login, refreshToken } = require('./App/Controllers/authController');
 const { User } = require('./App/Models/User');
+
+// const db = require("./App/Models");
+// const Role = db.role;
+
 const bcrypt = require('bcryptjs');
 
 // Middleware
@@ -18,10 +22,18 @@ app.use(express.json());
 // Database connection
 const URI = process.env.DB_URL;
 mongoose.connect(URI, dbConfig.options)
-    .then(() => console.log('Connected to MongoDB'))
-    .catch(err => console.error('MongoDB connection error:', err));
+    // .then(() => console.log('Connected to MongoDB'))
+// .catch(err => console.error('MongoDB connection error:', err));
+     .then(() => {
+    console.log("Successfully connect to MongoDB.");
+    //initial();
+  })
+  .catch(err => {
+    console.error("Connection error", err);
+    process.exit();
+  });
 
-const db = mongoose.connection;
+db = mongoose.connection;
 db.once("open", async () => {
   if ((await User.countDocuments().exec()) > 0) return;
   let salt = await bcrypt.genSalt(10);
@@ -30,7 +42,6 @@ db.once("open", async () => {
     User.create({name: "admin",email : "admin@admin.com", password : password, role : {isAdmin : true}}),
   ]).then(() => console.log("Added Admin User"));
 });
-app.use(express.json());
 
 // Routes
 app.use('/api/auth', authRoutes);
@@ -55,3 +66,39 @@ const PORT = process.env.PORT || authConfig.PORT ||  3000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+
+// function initial() {
+//    Role.estimatedDocumentCount((err, count) => {
+//     if (!err && count === 0) {
+//       new Role({
+//         name: "user"
+//       }).save(err => {
+//         if (err) {
+//           console.log("error", err);
+//         }
+
+//         console.log("added 'user' to roles collection");
+//       });
+
+//       new Role({
+//         name: "moderator"
+//       }).save(err => {
+//         if (err) {
+//           console.log("error", err);
+//         }
+
+//         console.log("added 'moderator' to roles collection");
+//       });
+
+//       new Role({
+//         name: "admin"
+//       }).save(err => {
+//         if (err) {
+//           console.log("error", err);
+//         }
+
+//         console.log("added 'admin' to roles collection");
+//       });
+//     }
+//   });
+// }

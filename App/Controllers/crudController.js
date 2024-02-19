@@ -1,5 +1,5 @@
 const bodyParser = require('body-parser')
-const {Post} = require('../Models/posts');
+const {Post} = require('../Models/Posts');
 
 
 exports.getPost = () =>{
@@ -48,12 +48,13 @@ exports.addPost = async (req, res) => {
 exports.updatePost= async (req, res) => {
 	let post = {}
 	if (req.body.subject) post.subject = req.body.subject
-	if (req.body.description) post.desciption = req.body.description
+	if (req.body.description) post.description = req.body.description
 	if (req.body.author) post.author = req.body.author
 
 	post = { $set: post }
 
-	Post.updateOne({_id: req.params.id}, post).then(() => {
+	Post.updateOne({ _id: req.params.id }, post).then(() => {
+		//res.json({"msg":"post updated successfully"})
 		res.send(post)
 	}).catch((err) => {
 		res.send(err)
@@ -63,7 +64,7 @@ exports.updatePost= async (req, res) => {
 
 exports.deletePost= async (req, res) => {
 	Post.deleteOne({_id: req.params.id}).then(() => {
-		res.json({"msg":"post deleted"})
+		res.json({"msg":"post deleted successfully"})
 	}).catch((err) => {
 		res.send(err)
 	})

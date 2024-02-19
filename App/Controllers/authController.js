@@ -1,6 +1,12 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+
+// const db = require("../Models");
+// const { user: User, role: Role, refreshToken: RefreshToken } = db;
+
 const { User } = require('../Models/User');
+const { Role } = require('../Models/Role');
+
 const { accessTokenSecret, refreshTokenSecret, accessTokenExpiration, refreshTokenExpiration } = require('../Config/auth.config');
 const { validateSignup, validateLogin } = require('../Middlewares/validator/auth')
 const _ = require('lodash');

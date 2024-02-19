@@ -26,7 +26,7 @@ To start server use `npm start`<br/>
 
 npm init
 
-npm install express mongoose bcryptjs jsonwebtoken dotenv body-parser config joi lodash
+npm install express mongoose bcryptjs jsonwebtoken dotenv body-parser config joi lodash uuid
 
 npm install --save-dev nodemon
 
