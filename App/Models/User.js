@@ -6,7 +6,8 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
     minlength: 5,
-    maxlength: 50
+    maxlength: 50,
+    default: false
   },
   email: {
     type: String,
@@ -23,10 +24,16 @@ const userSchema = new mongoose.Schema({
   },
   role: {
     isAdmin: {
-      type:Boolean,
+      type: Boolean,
       default: false,
     }
-  }
+  },
+   roles: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Role"
+      }
+    ]
 });
 
 userSchema.methods.generateAuthToken = function() { 

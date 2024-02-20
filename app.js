@@ -9,7 +9,7 @@ require('dotenv').config({ path: 'ENV_FILENAME' });
 const bodyParser = require('body-parser');
 // const { signup, login, refreshToken } = require('./App/Controllers/authController');
 const { User } = require('./App/Models/User');
-
+const { Role } = require('./App/Models/Role');
 // const db = require("./App/Models");
 // const Role = db.role;
 
@@ -39,8 +39,37 @@ db.once("open", async () => {
   let salt = await bcrypt.genSalt(10);
   let password = await bcrypt.hash("admin", salt);
   Promise.all([
-    User.create({name: "admin",email : "admin@admin.com", password : password, role : {isAdmin : true}}),
+    User.create({name: "Admin",email : "admin@admin.com", password : password, role : {isAdmin : true}}),
   ]).then(() => console.log("Added Admin User"));
+
+    if ((await Role.countDocuments().exec()) > 0) return;
+    Promise.all([
+        Role.create({name: "User"}),
+    ]).then(() => console.log("Added 'User' to roles collection"));
+     Promise.all([
+        Role.create({name: "Moderator"}),
+     ]).then(() => console.log("Added 'Moderator' to roles collection"));
+     Promise.all([
+        Role.create({name: "Admin"}),
+     ]).then(() => console.log("Added 'Admin' to roles collection"));
+     Promise.all([
+        Role.create({name: "SuperAdmin"}),
+     ]).then(() => console.log("Added 'SuperAdmin' to roles collection"));
+     Promise.all([
+        Role.create({name: "HR"}),
+     ]).then(() => console.log("Added 'HR' to roles collection"));
+     Promise.all([
+        Role.create({name: "Manager"}),
+     ]).then(() => console.log("Added 'Manager' to roles collection"));
+     Promise.all([
+        Role.create({name: "TechnicalLead"}),
+     ]).then(() => console.log("Added 'TechnicalLead' to roles collection"));
+     Promise.all([
+        Role.create({name: "SoftwareEngineer"}),
+     ]).then(() => console.log("Added 'SoftwareEngineer' to roles collection"));
+     Promise.all([
+        Role.create({name: "BusinessAnalyst"}),
+    ]).then(() => console.log("Added 'BusinessAnalyst' to roles collection"));
 });
 
 // Routes

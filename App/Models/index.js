@@ -10,6 +10,6 @@ db.Role = require("./Role");
 db.posts = require("./Posts");
 db.refreshToken = require("./refreshToken");
 
-db.ROLES = ["user", "admin", "moderator"];
+db.ROLES = ["User", "Moderator", "Admin", "SuperAdmin", "HR", "Manager", "TechnicalLead", "SoftwareEngineer", "BusinessAnalyst"];
 
 module.exports = db;
