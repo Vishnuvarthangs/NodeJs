@@ -16,8 +16,11 @@ const { Role } = require('./App/Models/Role');
 const bcrypt = require('bcryptjs');
 
 // Middleware
+// parse requests of content-type - application/json
 app.use(express.json());
-//app.use(bodyParser.json());
+
+// parse requests of content-type - application/x-www-form-urlencoded
+app.use(express.urlencoded({ extended: true }));
 
 // Database connection
 const URI = process.env.DB_URL;
@@ -70,6 +73,11 @@ db.once("open", async () => {
      Promise.all([
         Role.create({name: "BusinessAnalyst"}),
     ]).then(() => console.log("Added 'BusinessAnalyst' to roles collection"));
+});
+
+// simple route
+app.get("/", (req, res) => {
+  res.json({ message: "Welcome to RBAC application." });
 });
 
 // Routes

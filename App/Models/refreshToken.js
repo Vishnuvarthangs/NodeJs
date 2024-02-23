@@ -16,7 +16,8 @@ RefreshTokenSchema.statics.createToken = async function (user) {
   let expiredAt = new Date();
 
   expiredAt.setSeconds(
-    expiredAt.getSeconds() + config.jwtRefreshExpiration
+    // expiredAt.getSeconds() + config.jwtRefreshExpiration
+    expiredAt.getSeconds() + config.refreshTokenExpiration
   );
 
   let _token = uuidv4();

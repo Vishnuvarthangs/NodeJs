@@ -4,6 +4,8 @@ bodyParser = require('body-parser').json();
 const authController = require('../Controllers/authController');
 const CRUDController = require('../Controllers/crudController');
 //const { signup, login, refreshToken } = require('../Controllers/authController');
+const { verifySignUp } = require("../Middlewares");
+const authControllers = require('../Controllers/auth.controller');
 
 // router.post('/login', authController.login);
 // router.post('/token', authController.refreshToken);
@@ -23,4 +25,24 @@ router.patch('/crud/:id', [isAuth, isAdmin], CRUDController.updatePost);
 router.delete('/crud/:id', [isAuth, isAdmin], CRUDController.deletePost);
 
 
+
+router.post(
+    "/signups",
+    [
+        verifySignUp.checkDuplicateUsernameOrEmail,
+        verifySignUp.checkRolesExisted
+    ],
+    authControllers.signup
+);
+
+router.post("/signin", authControllers.signin);
+
+router.post("/refreshtoken", authControllers.refreshToken);
+
 module.exports = router;
+
+
+
+
+
+

@@ -1,11 +1,11 @@
 const db = require("../Models");
 const ROLES = db.ROLES;
-const User = db.user;
+const User = db.User;
 
 checkDuplicateUsernameOrEmail = (req, res, next) => {
   // Username
   User.findOne({
-    username: req.body.username
+    name: req.body.name
   }).exec((err, user) => {
     if (err) {
       res.status(500).send({ message: err });
